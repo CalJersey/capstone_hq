@@ -7,6 +7,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "es6-promise": "^4.1.1",
+    "jquery-ajax": "^2.1.4",
+    "link-require": "0.0.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-global": "^0.1.8",
@@ -14,13 +16,29 @@
     "react-materialize": "^1.0.11",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
+    "require-symlink": "^0.2.0",
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "poststart": "./app_init.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "requireSymlinks": {
+    "globalConfFile": "./.global_cnf"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "src/index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalJersey/capstone_hq.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CalJersey/capstone_hq/issues"
+  },
+  "homepage": "https://github.com/CalJersey/capstone_hq#readme"
 }

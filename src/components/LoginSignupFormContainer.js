@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery-ajax";
 import LoginSignupForm from "./LoginSignupForm"
 
 class LoginSignupFormContainer extends Component {
@@ -19,7 +20,7 @@ class LoginSignupFormContainer extends Component {
     let password=e.password;
     $.ajax({
         method: "POST",
-        url: this.props.loginUrl,
+        url: lobal.config.lbApiUrl,
         data: {
         email: email,
         password: password
@@ -48,7 +49,7 @@ class LoginSignupFormContainer extends Component {
   render() {
     return(
 
-      <UserAuth
+      <LoginSignupForm
         userId={this.state.userId}
         isAuthenticated={this.state.isAuthenticated}
         loginUrl={this.props.loginUrl}
