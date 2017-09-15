@@ -19,31 +19,88 @@ p {
   color: #26a69a;
 }
 
+.btn {
+  margin:5px;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-small {
+  line-height: 25px;
+  height: 25px;
+  font-size: 12px;
+}
+.btn-small-text {
+  position:relative;
+  bottom: 5px;
+}
+
+h5 {
+  font-size: 1.4rem;
+  line-height: 90%
+  font-weight: 700;
+}
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
+  height: 2rem;
+  margin: 7px;
+  margin-right: 50px;
+  width: 90%;
+}
+
+.card {
+  border-radius: 5px;
+  min-width: 305px;
+}
+.card .card-content {
+  padding: 10px;
+}
+.card .card-content .card-title {
+  line-height: 25px;
+}
+
 .parallax-container {
   min-height: 380px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
+  overflow-y: visible;
+
 }
-  .parallax-container .section {
+.parallax-container .section {
     width: 100%;
+    overflow-y: visible;
   }
+.parallax-container .section .container {
+  overflow-y: visible;
+}
 #index-banner {
   min-height: 450px;
 }
+
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
   }
 }
 
 @media only screen and (max-width : 600px) {
   #index-banner .section {
     top: 0;
+  }
+  .card {
+    min-width:175px;
   }
 }
 
@@ -63,5 +120,6 @@ footer.page-footer {
 }
 
 #parallax_1 img {
-  bottom: -50px;
+  bottom: -20px;
+  right:25px;
 }

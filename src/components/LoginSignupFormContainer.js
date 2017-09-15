@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery-ajax";
-import LoginSignupForm from "./LoginSignupForm"
+import LoginSignupForm from "./LoginSignupForm";
+import {notify} from 'react-notify-toast';
 
 class LoginSignupFormContainer extends Component {
   constructor(props) {
@@ -11,36 +12,31 @@ class LoginSignupFormContainer extends Component {
     }
     // this.setAuthState=this.setAuthState.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
-    this.handleLogout=this.handleLogout.bind(this);
     this.setAuthState=this.setAuthState.bind(this);
   }
 
   handleSubmit(e) {
     let email=e.email;
     let password=e.password;
+    let ApiUrl = global.customConfig.lbApiUrl + 'Users'
+    if (e.action == 'Login') {
+      ApiUrl = ApiUrl + '/login'
+    }
     $.ajax({
         method: "POST",
-        url: lobal.config.lbApiUrl,
+        url: ApiUrl,
         data: {
         email: email,
         password: password
       }
     }).then(res => {
       console.log("res is ", res);
-      this.setState({isAuthenticated: true, userId: res._id});
-      this.setAuthState(true,res._id);
+      this.setState({isAuthenticated: true, userId: res.id});
+      this.setAuthState(true,res.id);
     }, err => {
-      console.log("oops!");
-      console.log(err);
+      notify.show(err,'error');
     });
   }
-
-  handleLogout(e) {
-    e.preventDefault();
-    this.setState({isAuthenticated: false, userId: ""});
-    this.setAuthState(false,"");
-  }
-
 
   setAuthState(isAuth,userId){
     this.setState({isAuthenticated:isAuth, userId:userId});
@@ -52,10 +48,9 @@ class LoginSignupFormContainer extends Component {
       <LoginSignupForm
         userId={this.state.userId}
         isAuthenticated={this.state.isAuthenticated}
-        loginUrl={this.props.loginUrl}
-        setAuthState={this.setAuthState}
         onUserSubmit={this.handleSubmit}
-        handleLogout={this.handleLogout} />
+        setAuthState={this.setAuthState}
+        />
     )
   }
 }

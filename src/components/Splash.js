@@ -9,18 +9,15 @@ class Splash extends Component {
         <div id="index-banner" className="parallax-container">
           <div className="section no-pad-bot">
             <div className="container">
-              <br /><br />
+  
               <h1 className="header center teal-text text-lighten-1">HUH!</h1>
               <div className="row center">
                 <h5 className="header col s12 bright-pink-text"><strong>More Useful Than You Think!</strong></h5>
               </div>
               <div className="row center">
-                <LoginSignupFormContainer
-                  displayLogin={true}
-                  displayLogout={false}
-                  displaySignup={true} />
+                <LoginSignupFormContainer />
               </div>
-              <br /><br />
+              <br /><br /><br />
 
             </div>
           </div>
