@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import $ from "jquery-ajax";
 import LoginSignupForm from "./LoginSignupForm";
 import {notify} from 'react-notify-toast';
+import {Redirect} from 'react-router-dom';
 
 class LoginSignupFormContainer extends Component {
   constructor() {
     super();
+    this.state = {
+      redirect:false,
+      userId:0
+    }
     this.handleSubmit=this.handleSubmit.bind(this);
   }
 
@@ -33,7 +38,8 @@ class LoginSignupFormContainer extends Component {
         this.handleSubmit(login)
       } else {
         global.sessionController.setSessionKey('userId',res.userId)
-        global.sessionController.setSessionKey('ACCESS_TOKEN',res.userId)
+        global.sessionController.setSessionKey('ACCESS_TOKEN',res.userId);
+        this.setState({redirect:true, userId:res.userId})
       }
     }, err => {
       notify.show(err.responseJSON.error.message,'error');
@@ -42,6 +48,11 @@ class LoginSignupFormContainer extends Component {
 
 
   render() {
+    console.log("red:",this.state.redirect)
+    if (this.state.redirect) {
+      let redirectRoute = `/dashboard/${this.state.userId}`;
+      return <Redirect to={redirectRoute} push />;
+    }
     return(
 
       <LoginSignupForm

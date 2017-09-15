@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Splash from './components/Splash';
-import Dashboard from './components/Dashboard';
-import Notifications from 'react-notify-toast';
+import {Route} from 'react-router-dom';
+import MainLayout from './components/MainLayout';
 
 class App extends Component {
-  constructor(){
-    super();
-  }
   render() {
     return (
       <div className="App">
-        <Notifications />
-        <Switch>
-          <Route exact path="/" component={Splash}/>
-          <Route path="/dashboard/:id" component={Dashboard}/>
-        </Switch>
+        <Route path="/" component={MainLayout}/>
       </div>
     );
   }

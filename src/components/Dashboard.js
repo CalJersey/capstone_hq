@@ -7,6 +7,7 @@ class Dashboard extends Component {
       <div className="dashboard">
         Dashboard
       </div>
+      
     )
   }
 }
