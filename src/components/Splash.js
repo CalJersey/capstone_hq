@@ -8,20 +8,21 @@ class Splash extends Component {
       <div>
         <div id="index-banner" className="parallax-container">
           <div className="section no-pad-bot">
-            <div className="container">
-  
-              <h1 className="header center teal-text text-lighten-1">HUH!</h1>
-              <div className="row center">
-                <h5 className="header col s12 bright-pink-text"><strong>More Useful Than You Think!</strong></h5>
-              </div>
-              <div className="row center">
-                <LoginSignupFormContainer />
+              <div className="row">
+                <div className="col l4 offset-l4 m8 offset-m4 s9 offset-s3">
+                  <div className="header-container">
+                    <h1 className="header teal-text text-lighten-1">HUH!</h1>
+                    <h5 className="header bright-pink-text"><strong>More Useful Than You Think!</strong></h5>
+                  </div>
+                </div>
+                <div className="col l4 m9 offset-m3 s9 offset-s3">
+                  <LoginSignupFormContainer />
+                </div>
               </div>
               <br /><br /><br />
 
-            </div>
           </div>
-          <div className="parallax" id="parallax_1"><img src="/images/hud2.jpeg" alt="Car Dashboard" /></div>
+          <div className="parallax" id="parallax_1"><img src="/images/hud2b.jpg" alt="Car Dashboard" /></div>
         </div>
 
 

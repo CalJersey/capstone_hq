@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { config } from 'react-loopback';
-import './globalConfig'
+import './globalConfig';
+import './sessionController';
 
-config.set('baseUrl', global.customConfig.lbApiUrl);
+//base url for react-loopback #ToDo: move somewhere more appropriate
+config.set('baseUrl', global.EnvConfig.lbApiUrl);
 
 
 ReactDOM.render((

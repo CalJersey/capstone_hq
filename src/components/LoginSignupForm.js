@@ -33,7 +33,7 @@ class LoginSignupForm extends Component {
     // console.log("this=",this);
     // console.log("e=",e);
     // console.log("su",document.getElementById("Signup").value)
-    // console.log("li",document.getElementById("Login").value) 
+    // console.log("li",document.getElementById("Login").value)
     if (!this.validateForm()) return false;
     let email = this.state.email.trim();
     let password = this.state.password.trim();
@@ -114,16 +114,10 @@ class LoginSignupForm extends Component {
     }
 
     return(
-        <div className="row">
-          <div className="col s8 offset-s1 offset-m4 m4">
-            <div className="card white lighten-1">
-              {cardContent}
-              {cardAction}
-            </div>
-          </div>
-        </div>
-
-
+      <div className="card white lighten-1 center">
+        {cardContent}
+        {cardAction}
+      </div>
     )
   }
 }

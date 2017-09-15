@@ -34,9 +34,26 @@ p {
   bottom: 5px;
 }
 
-h5 {
-  font-size: 1.4rem;
-  line-height: 90%
+p {
+  line-height: 1.5rem;
+}
+
+div.head-container {
+  text-align: center;
+}
+
+h1.header {
+  font-size: 75px;
+}
+
+h5.header, h1.header {
+  text-shadow: -2px -1px #fff;
+  text-align: center;
+}
+
+h5.header{
+  font-size: 1.7rem;
+  line-height: 1.7rem;
   font-weight: 700;
 }
 
@@ -53,7 +70,7 @@ input[type=tel],
 input[type=number],
 input[type=search],
 textarea.materialize-textarea {
-  height: 2rem;
+  height: 1.33rem;
   margin: 7px;
   margin-right: 50px;
   width: 90%;
@@ -61,7 +78,11 @@ textarea.materialize-textarea {
 
 .card {
   border-radius: 5px;
-  min-width: 305px;
+  min-width: 330px;
+  max-width: 330px;
+}
+.card .card-title {
+  font-weight: 500;
 }
 .card .card-content {
   padding: 10px;
@@ -93,6 +114,18 @@ textarea.materialize-textarea {
   .parallax-container .section {
     position: absolute;
   }
+  html{
+    font-size: 13px;
+  }
+  div.head-container {
+    text-align: left;
+  }
+  h1.header {
+    text-align: left;
+  }
+  h5.header {
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width : 600px) {
@@ -100,7 +133,19 @@ textarea.materialize-textarea {
     top: 0;
   }
   .card {
-    min-width:175px;
+    min-width:200px;
+  }
+  html{
+    font-size: 12px;
+  }
+  div.head-container {
+    text-align: left;
+  }
+  h1.header {
+    text-align: left;
+  }
+  h5.header {
+    text-align: left;
   }
 }
 
@@ -120,6 +165,6 @@ footer.page-footer {
 }
 
 #parallax_1 img {
-  bottom: -20px;
+  bottom: -15%;
   right:25px;
 }

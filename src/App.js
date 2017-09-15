@@ -5,7 +5,9 @@ import Dashboard from './components/Dashboard';
 import Notifications from 'react-notify-toast';
 
 class App extends Component {
-  constructor
+  constructor(){
+    super();
+  }
   render() {
     return (
       <div className="App">
