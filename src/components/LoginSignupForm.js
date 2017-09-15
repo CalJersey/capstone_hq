@@ -16,7 +16,6 @@ class LoginSignupForm extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
-
   }
 
   validateForm()  {
@@ -26,6 +25,7 @@ class LoginSignupForm extends Component {
       notify.show('Email and Password are Required','error');
       return false;
     }
+    return true
   }
 
   handleSignup(e) {
@@ -33,7 +33,7 @@ class LoginSignupForm extends Component {
     // console.log("this=",this);
     // console.log("e=",e);
     // console.log("su",document.getElementById("Signup").value)
-    // console.log("li",document.getElementById("Login").value)
+    // console.log("li",document.getElementById("Login").value) 
     if (!this.validateForm()) return false;
     let email = this.state.email.trim();
     let password = this.state.password.trim();

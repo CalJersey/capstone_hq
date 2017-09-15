@@ -19,7 +19,7 @@ class LoginSignupFormContainer extends Component {
     let email=e.email;
     let password=e.password;
     let ApiUrl = global.customConfig.lbApiUrl + 'Users'
-    if (e.action == 'Login') {
+    if (e.action === 'Login') {
       ApiUrl = ApiUrl + '/login'
     }
     $.ajax({
@@ -31,13 +31,19 @@ class LoginSignupFormContainer extends Component {
       }
     }).then(res => {
       console.log("res is ", res);
+      if (e.action === 'Signup'){
+        this.setState({isAuthenticated: false, userId: res.id});
+        let newAction = 'Login'
+        let login = {email: email, password: password, action: newAction}
+        this.handleSubmit(login)
+      }
       this.setState({isAuthenticated: true, userId: res.id});
       this.setAuthState(true,res.id);
+
     }, err => {
-      notify.show(err,'error');
+      notify.show(err.responseJSON.error.message,'error');
     });
   }
-
   setAuthState(isAuth,userId){
     this.setState({isAuthenticated:isAuth, userId:userId});
   }

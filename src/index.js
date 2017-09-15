@@ -5,7 +5,7 @@ import App from './App';
 import { config } from 'react-loopback';
 import './globalConfig'
 
-config.set('baseUrl', 'http://localhost:3000/api/');
+config.set('baseUrl', global.customConfig.lbApiUrl);
 
 
 ReactDOM.render((
