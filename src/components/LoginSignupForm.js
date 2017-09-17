@@ -8,9 +8,7 @@ class LoginSignupForm extends Component {
     super(props);
     this.state = {
       email: "",
-      password: "",
-      userId: this.props.userId,
-      isAuthenticated: this.props.isAuthenticated
+      password: ""
     };
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -64,7 +62,7 @@ class LoginSignupForm extends Component {
     return (
       <div className="card-content teal-text text-lighten-1">
         <span className="card-title">Welcome Back</span>
-        <p>Click below to be taken to your HUH Dashboard or to Logout.</p>
+        <p>Click below to be taken to your HUH! Dashboard or to Logout.</p>
        </div>
      )
    }
@@ -72,8 +70,8 @@ class LoginSignupForm extends Component {
    renderAuthorizedAction(){
      return(
        <div className="card-action">
-         <button name="Dashboard" className="btn btn-small btn-primary" type="button" value="Dashboard"><Link to="/dashboard/{this.props.userId}">Dashboard<i className="small material-icons">chevron_right</i></Link></button>
-         <button name="Logout" className="btn btn-small btn-primary" type="button" value="Logout"><Link to="/logout/">Logout<i className="small material-icons">chevron_right</i></Link></button>
+         <Link to={`/dashboard/${global.sessionController.userId}`} className="btn btn-small btn-primary"><span className="btn-small-text">Dashboard</span><i className="small material-icons">chevron_right</i></Link>
+         <Link to="/logout/" className="btn btn-small btn-primary"><span className="btn-small-text">Logout</span><i className="small material-icons">chevron_right</i></Link>
        </div>
      )
    }
@@ -82,7 +80,7 @@ class LoginSignupForm extends Component {
     return (
       <div className="card-content teal-text text-lighten-1">
         <span className="card-title">Login or Signup</span>
-        <p>If you already have a HUH Dashboard, use this form to Login. If not, use it to Signup for one.</p>
+        <p>If you already have a HUH! Dashboard, use this form to Login. If not, use it to Signup for one.</p>
         <input type="email" placeholder="email" value={this.state.email} onChange={this.handleEmailChange} className="validate" /><br />
         <input type="password" placeholder="password" value={this.state.password} onChange={this.handlePasswordChange} className="validate" /><br />
       </div>
@@ -105,7 +103,7 @@ class LoginSignupForm extends Component {
     //console.log("state.isAuthenticated=",{this.state.isAuthenticated})
     let cardContent = ""
     let cardAction = ""
-    if (this.state.isAuthenticated) {
+    if (global.sessionController.isAuthenticated()) {
       cardContent = this.renderAuthorizedContent()
       cardAction =  this.renderAuthorizedAction()
     } else {

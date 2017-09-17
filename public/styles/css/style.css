@@ -78,8 +78,9 @@ textarea.materialize-textarea {
 
 .card {
   border-radius: 5px;
-  min-width: 330px;
-  max-width: 330px;
+  min-width: 350px;
+  max-width: 350px;
+  border: 1px solid #1fd9d0;
 }
 .card .card-title {
   font-weight: 500;
@@ -90,24 +91,20 @@ textarea.materialize-textarea {
 .card .card-content .card-title {
   line-height: 25px;
 }
-
+.card .card-action {
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:10px;
+}
 .parallax-container {
-  min-height: 380px;
+  min-height: 400px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
-  overflow-y: visible;
-
 }
+
 .parallax-container .section {
     width: 100%;
-    overflow-y: visible;
-  }
-.parallax-container .section .container {
-  overflow-y: visible;
-}
-#index-banner {
-  min-height: 450px;
 }
 
 @media only screen and (max-width : 992px) {
@@ -167,4 +164,20 @@ footer.page-footer {
 #parallax_1 img {
   bottom: -15%;
   right:25px;
+
 }
+
+/* Class for when element is above threshold */
+ .pin-top {
+   position: relative;
+ }
+
+ /* Class for when element is below threshold */
+ .pin-bottom {
+   position: absolute;
+ }
+
+ /* Class for when element is pinned */
+ .pinned {
+   position: fixed !important;
+ }

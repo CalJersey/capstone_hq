@@ -5,6 +5,7 @@ import App from './App';
 import { config } from 'react-loopback';
 import './globalConfig';
 import './sessionController';
+import './localStorageController';
 
 //base url for react-loopback #ToDo: move somewhere more appropriate
 config.set('baseUrl', global.EnvConfig.lbApiUrl);

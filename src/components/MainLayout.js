@@ -3,7 +3,6 @@ import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Splash from './Splash';
 import Dashboard from './Dashboard';
 //import NavLinks from './NavLinks';
-import Notifications from 'react-notify-toast';
 
 class MainLayout extends Component {
   render() {
@@ -24,9 +23,7 @@ class MainLayout extends Component {
         </nav>
 
         <div className="entry">
-          <Notifications />
-          <Switch>
-            <Route exact path="/" component={Splash}/>
+          <Switch> 
             <Route path="/dashboard/" component={Dashboard}/>
             <Redirect to="/" />
           </Switch>

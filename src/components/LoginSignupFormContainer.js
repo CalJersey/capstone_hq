@@ -38,8 +38,9 @@ class LoginSignupFormContainer extends Component {
         this.handleSubmit(login)
       } else {
         global.sessionController.setSessionKey('userId',res.userId)
-        global.sessionController.setSessionKey('ACCESS_TOKEN',res.userId);
+        global.sessionController.setSessionKey('ACCESS_TOKEN',res.id);
         this.setState({redirect:true, userId:res.userId})
+        console.log("SS",sessionStorage);
       }
     }, err => {
       notify.show(err.responseJSON.error.message,'error');
