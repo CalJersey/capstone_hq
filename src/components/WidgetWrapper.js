@@ -3,7 +3,6 @@ import $ from "jquery-ajax";
 import LoginSignupForm from "./LoginSignupForm";
 import {notify} from 'react-notify-toast';
 import {Redirect} from 'react-router-dom';
-import betterFetch from '../scripts/betterFetch.js'
 
 class WidgetWrapper extends Component {
   //props I need: widgetID

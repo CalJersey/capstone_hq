@@ -6,6 +6,7 @@
     "babel-core": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "es6-promise": "^4.1.1",
+    "jquery": "^3.2.1",
     "jquery-ajax": "^2.1.4",
     "node-expat": "^2.3.16",
     "react": "^15.6.1",
@@ -15,6 +16,7 @@
     "react-global": "^0.1.8",
     "react-loopback": "^0.4.0",
     "react-notify-toast": "^0.3.2",
+    "react-parallax": "^1.4.4",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.0.13",
     "whatwg-fetch": "^2.0.3"

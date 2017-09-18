@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import $ from "jquery";
 import LoginSignupFormContainer from './LoginSignupFormContainer';
 
 class Splash extends Component {
   render() {
     return (
       <div>
-
         <div id="index-banner" className="parallax-container">
           <div className="section no-pad-bot">
               <div className="row">
@@ -60,6 +60,7 @@ class Splash extends Component {
 
           </div>
         </div>
+        <script>$('.parallax').parallax();</script>
       </div>
     )
   }

@@ -15,7 +15,7 @@ class Logout extends Component {
     let accessToken = global.config.SessionCtrl.sessionKey('ACCESS_TOKEN');
     let apiUrl = global.config.Env.lbApiUrl + 'Users/logout?access_token=' + accessToken;
 
-    console.log("at",accessToken)
+    console.log("at=",accessToken)
     $.ajax({
         method: "POST",
         url: apiUrl,
@@ -25,12 +25,14 @@ class Logout extends Component {
       global.config.LSCtrl.destroyUserLocalStorage()
       global.config.LSCtrl.setUserRedirectMessages('You have been logged out successfully.','success')
       this.setState({redirect:true, redirectPath:'/'})
-    }, err => {
-      console.log(err)
-      global.config.LSCtrl.setUserRedirectMessages(err.responseJSON.error.message,'error')
-      this.setState({redirect: true, redirectPath:`/dashboard/${global.config.SessionCtrl.sessionKey('userId')}`})
-    });
 
+    }, err => {
+      global.config.SessionCtrl.destroyUserSession()
+      global.config.LSCtrl.destroyUserLocalStorage()
+      global.config.LSCtrl.setUserRedirectMessages('You have been logged out successfully.','success')
+      this.setState({redirect:true, redirectPath:'/'})
+
+    })
   }
   render(){
 

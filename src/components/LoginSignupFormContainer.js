@@ -48,7 +48,6 @@ class LoginSignupFormContainer extends Component {
     });
   }
 
-
   render() {
     //console.log("red:",this.state.redirect)
     if (this.state.redirect) {
