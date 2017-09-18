@@ -3,7 +3,7 @@ import {notify} from 'react-notify-toast';
 
 class NotificationsFromPreviousPage extends Component {
   componentDidMount() {
-    let toastMessages = global.localStorageController.getUserRedirectMessages();
+    let toastMessages = global.config.LSCtrl.getUserRedirectMessages();
     if (toastMessages){
       notify.show(toastMessages[0],toastMessages[1]);
     }

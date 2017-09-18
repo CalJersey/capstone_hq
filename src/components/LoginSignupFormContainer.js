@@ -18,7 +18,7 @@ class LoginSignupFormContainer extends Component {
   handleSubmit(e) {
     let email=e.email;
     let password=e.password;
-    let ApiUrl = global.EnvConfig.lbApiUrl + 'Users'
+    let ApiUrl = global.config.EnvConfig.lbApiUrl + 'Users'
     if (e.action === 'Login') {
       ApiUrl = ApiUrl + '/login'
     }
@@ -32,13 +32,13 @@ class LoginSignupFormContainer extends Component {
     }).then(res => {
       console.log("res is ", res);
       if (e.action === 'Signup'){
-        global.sessionController.setSessionKey('userId',res.id)
+        global.config.SessionCtrl.setSessionKey('userId',res.id)
         let newAction = 'Login'
         let login = {email: email, password: password, action: newAction}
         this.handleSubmit(login)
       } else {
-        global.sessionController.setSessionKey('userId',res.userId)
-        global.sessionController.setSessionKey('ACCESS_TOKEN',res.id);
+        global.config.SessionCtrl.setSessionKey('userId',res.userId)
+        global.config.SessionCtrl.setSessionKey('ACCESS_TOKEN',res.id);
         this.setState({redirect:true, userId:res.userId})
         console.log("SS",sessionStorage);
       }

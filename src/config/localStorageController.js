@@ -1,4 +1,4 @@
-global.localStorageController = {
+let localStorageController = {
 
   getLocalStorageKey: function(key){
     return localStorage[key];
@@ -31,5 +31,6 @@ global.localStorageController = {
   destroyUserLocalStorage: function(){
     localStorage.clear();
   }
+};
 
-}
+module.exports = localStorageController

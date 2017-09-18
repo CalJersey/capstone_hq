@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Route, Redirect, Switch} from 'react-router-dom';
-import MainLayout from './components/MainLayout';
+import MainLayout from './MainLayout';
 import Notifications from 'react-notify-toast';
-import NotificationsFromPreviousPage from './components/NotificationsFromPreviousPage';
-import Logout from './components/Logout';
+import NotificationsFromPreviousPage from './NotificationsFromPreviousPage';
+import Logout from './Logout';
 
 class App extends Component {
   render() {

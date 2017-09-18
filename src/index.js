@@ -1,19 +1,21 @@
+//set global variables, inclding environment specifc info
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+//import Config from './components/config'
+import App from './components/App';
 import { config } from 'react-loopback';
-import './globalConfig';
-import './sessionController';
-import './localStorageController';
 
-//base url for react-loopback #ToDo: move somewhere more appropriate
-config.set('baseUrl', global.EnvConfig.lbApiUrl);
+let globalConfig = require('./config');
+global.config = globalConfig;
+console.log(global.config)
 
+//react-Loopback config url
+config.set('baseUrl', 'http://localhost:3000/api/');
 
 ReactDOM.render((
   <BrowserRouter>
-    <App />
+      <App />
   </BrowserRouter>
   ),document.getElementById('root')
 )

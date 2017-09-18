@@ -1,6 +1,6 @@
-global.sessionController = {
+let sessionController = {
 
-  getSessionKey: function(key){
+  sessionKey: function(key){
     return sessionStorage[key];
   },
 
@@ -21,5 +21,6 @@ global.sessionController = {
   destroyUserSession: function(){
     sessionStorage.clear();
   }
-
 }
+
+module.exports = sessionController

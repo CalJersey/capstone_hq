@@ -23,7 +23,7 @@ class MainLayout extends Component {
         </nav>
 
         <div className="entry">
-          <Switch> 
+          <Switch>
             <Route path="/dashboard/" component={Dashboard}/>
             <Redirect to="/" />
           </Switch>

@@ -70,7 +70,7 @@ class LoginSignupForm extends Component {
    renderAuthorizedAction(){
      return(
        <div className="card-action">
-         <Link to={`/dashboard/${global.sessionController.userId}`} className="btn btn-small btn-primary"><span className="btn-small-text">Dashboard</span><i className="small material-icons">chevron_right</i></Link>
+         <Link to={`/dashboard/${global.config.SessionCtrl.getSessionKey('userId')}`} className="btn btn-small btn-primary"><span className="btn-small-text">Dashboard</span><i className="small material-icons">chevron_right</i></Link>
          <Link to="/logout/" className="btn btn-small btn-primary"><span className="btn-small-text">Logout</span><i className="small material-icons">chevron_right</i></Link>
        </div>
      )
@@ -103,7 +103,7 @@ class LoginSignupForm extends Component {
     //console.log("state.isAuthenticated=",{this.state.isAuthenticated})
     let cardContent = ""
     let cardAction = ""
-    if (global.sessionController.isAuthenticated()) {
+    if (global.config.SessionCtrl.isAuthenticated()) {
       cardContent = this.renderAuthorizedContent()
       cardAction =  this.renderAuthorizedAction()
     } else {
