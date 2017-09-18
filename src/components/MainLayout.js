@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
-import Splash from './Splash';
 import Dashboard from './Dashboard';
+import Splash from './Splash'
 //import NavLinks from './NavLinks';
 
 class MainLayout extends Component {
@@ -25,7 +25,7 @@ class MainLayout extends Component {
         <div className="entry">
           <Switch>
             <Route path="/dashboard/" component={Dashboard}/>
-            <Redirect to="/" />
+            <Route path="/" component={Splash} />
           </Switch>
         </div>
 

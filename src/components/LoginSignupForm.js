@@ -70,7 +70,7 @@ class LoginSignupForm extends Component {
    renderAuthorizedAction(){
      return(
        <div className="card-action">
-         <Link to={`/dashboard/${global.config.SessionCtrl.getSessionKey('userId')}`} className="btn btn-small btn-primary"><span className="btn-small-text">Dashboard</span><i className="small material-icons">chevron_right</i></Link>
+         <Link to={`/dashboard/${global.config.SessionCtrl.sessionKey('userId')}`} className="btn btn-small btn-primary"><span className="btn-small-text">Dashboard</span><i className="small material-icons">chevron_right</i></Link>
          <Link to="/logout/" className="btn btn-small btn-primary"><span className="btn-small-text">Logout</span><i className="small material-icons">chevron_right</i></Link>
        </div>
      )
@@ -112,7 +112,7 @@ class LoginSignupForm extends Component {
     }
 
     return(
-      <div className="card white lighten-1 center">
+      <div className="card white lighten-1 center neg-right">
         {cardContent}
         {cardAction}
       </div>

@@ -14,7 +14,6 @@ class App extends Component {
         <Switch>
           <Route path="/logout/" component={Logout} />
           <Route path="/" component={MainLayout}/>
-          <Redirect to="/" />
         </Switch>
       </div>
     );

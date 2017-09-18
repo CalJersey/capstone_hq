@@ -10,7 +10,7 @@ let sessionController = {
   },
 
   isAuthenticated: function(){
-    return this.getSessionKey('ACCESS_TOKEN') ? true : false
+    return this.sessionKey('ACCESS_TOKEN') ? true : false
   },
 
   setUserSession: function (token, id) {

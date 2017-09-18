@@ -1,24 +1,27 @@
 import React, { Component } from "react";
-import $ from "jquery-ajax";
-import LoginSignupForm from "./LoginSignupForm";
 import {notify} from 'react-notify-toast';
 import {Redirect} from 'react-router-dom';
+import {api_name} from './.config'
+import dashboardWrapper from '../dashboardWrapper'
 
-class LoginSignupFormContainer extends Component {
+class Wrapper extends WidgetWrapper {
   constructor() {
     super();
     this.state = {
       redirect:false,
-      userId:0
+      user:{},
+      api: {},
+
+
     }
     this.handleSubmit=this.handleSubmit.bind(this);
   }
 
   //THis is where the magic happens. This function handles both signup and login
-  handleSubmit(e) {
+  callApi(e) {
     let email=e.email;
     let password=e.password;
-    let ApiUrl = global.config.Env.lbApiUrl + 'Users'
+    let ApiUrl = global.config.EnvConfig.lbApiUrl + 'Users'
     if (e.action === 'Login') {
       ApiUrl = ApiUrl + '/login'
     }
@@ -39,7 +42,6 @@ class LoginSignupFormContainer extends Component {
       } else {
         global.config.SessionCtrl.setSessionKey('userId',res.userId)
         global.config.SessionCtrl.setSessionKey('ACCESS_TOKEN',res.id);
-        global.config.SessionCtrl.setSessionKey('email',email)
         this.setState({redirect:true, userId:res.userId})
         console.log("SS",sessionStorage);
       }
@@ -48,9 +50,10 @@ class LoginSignupFormContainer extends Component {
     });
   }
 
+  loadInstanceData()
 
   render() {
-    //console.log("red:",this.state.redirect)
+    console.log("red:",this.state.redirect)
     if (this.state.redirect) {
       let redirectRoute = `/dashboard/${this.state.userId}`;
       return <Redirect to={redirectRoute} push />;
@@ -63,4 +66,4 @@ class LoginSignupFormContainer extends Component {
     )
   }
 }
-export default LoginSignupFormContainer;
+export default Wrapper;

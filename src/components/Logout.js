@@ -12,7 +12,7 @@ class Logout extends Component {
   }
 
   componentDidMount(){
-    let accessToken = global.config.SessionCtrl.getSessionKey('ACCESS_TOKEN');
+    let accessToken = global.config.SessionCtrl.sessionKey('ACCESS_TOKEN');
     let apiUrl = global.config.Env.lbApiUrl + 'Users/logout?access_token=' + accessToken;
 
     console.log("at",accessToken)
@@ -28,7 +28,7 @@ class Logout extends Component {
     }, err => {
       console.log(err)
       global.config.LSCtrl.setUserRedirectMessages(err.responseJSON.error.message,'error')
-      this.setState({redirect: true, redirectPath:`/dashboard/${global.config.SessionCtrl.getSessionKey('userId')}`})
+      this.setState({redirect: true, redirectPath:`/dashboard/${global.config.SessionCtrl.sessionKey('userId')}`})
     });
 
   }

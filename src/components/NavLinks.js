@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 class NavLinks extends Component {
   render() {
-    let dashboardLink = `/dashboard/${global.config.SessionCtrl.getSessionKey('userId')}`;
+    let dashboardLink = `/dashboard/${global.config.SessionCtrl.sessionKey('userId')}`;
     return (
       <div>
         <NavLink to="/" exact activeClassName="active"><li>Home</li></NavLink>

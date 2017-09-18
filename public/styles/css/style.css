@@ -76,6 +76,9 @@ textarea.materialize-textarea {
   width: 90%;
 }
 
+div.notification-wrapper important! {
+  line-height: 2rem;
+}
 .card {
   border-radius: 5px;
   min-width: 350px;
@@ -96,6 +99,11 @@ textarea.materialize-textarea {
   padding-right:10px;
   padding-bottom:10px;
 }
+
+.neg-right {
+  margin-right: -10%;
+}
+
 .parallax-container {
   min-height: 400px;
   line-height: 0;
