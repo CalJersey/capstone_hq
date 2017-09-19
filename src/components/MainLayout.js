@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
-import Splash from './Splash'
+import Splash from './Splash';
+import Logo from './Logo';
 //import NavLinks from './NavLinks';
 
 class MainLayout extends Component {
@@ -10,7 +11,8 @@ class MainLayout extends Component {
       <div className="main">
         <nav className="white">
           <div className="nav-wrapper container">
-            <Link to='/' >Logo</ Link>
+            <Route path="/dashboard" component={Logo} />
+
             <ul className="right hide-on-med-and-down">
 
             </ul>

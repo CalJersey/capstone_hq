@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from "react";
-import {Redirect} from 'react-router';
+import {Redirect} from 'react-router-dom';
 import {notify} from 'react-notify-toast';
 import WidgetWrapper from './WidgetWrapper';
 import $ from 'jquery-ajax';
@@ -27,7 +27,7 @@ class Dashboard extends Component {
     let ApiUrl = `${global.config.Env.lbApiUrl}Widgets?`;
     let ApiQs = `access_token=${global.config.SessionCtrl.sessionKey('ACCESS_TOKEN')}&`
     ApiQs = ApiQs + `filter={"where":{"user_Id":${global.config.SessionCtrl.sessionKey('userId')}}`;
-    ApiQs = ApiQs + `,"include":"APIs"}`;
+    ApiQs = ApiQs + `,"include":"api_"}`;
     ApiUrl = ApiUrl + ApiQs;
     $.ajax({
           method: "GET",
@@ -58,12 +58,12 @@ class Dashboard extends Component {
       let renderWidgets = []
       if(userWidgets){
         userWidgets.forEach(function(item,index){
-          renderWidgets.push(<WidgetWrapper widgetId={item.id} />)
+          renderWidgets.push(<div className="DashboardWidget xl3 l4 m6 s12 "><WidgetWrapper key={index} props={item} /></div>)
         })
       }
     return (
-      <div className="dashboard">
-        <h2 className="dashboard-header">Your HUH! Dashboard</h2>
+      <div className="dashboard row">
+
         {renderWidgets}
 
       </div>

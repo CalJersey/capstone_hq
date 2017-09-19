@@ -2,7 +2,14 @@
   $(function(){
 
     $('.button-collapse').sideNav();
-    $('.parallax').parallax();
+
+    setInterval(
+    ()=>{      
+      if ($('.parallax').css('transform')=='none'){
+        $('.parallax').parallax();}
+      }
+      ,1000);
+
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space

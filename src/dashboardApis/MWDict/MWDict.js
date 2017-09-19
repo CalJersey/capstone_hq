@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 
-class Dashboard extends Component {
+class MWDict extends Component {
   constructor(){
     super();
     this.state ={
@@ -29,4 +29,4 @@ class Dashboard extends Component {
 
 }
 
-export default Dashboard
+export default MWDict

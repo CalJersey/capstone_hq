@@ -113,7 +113,7 @@ class LoginSignupForm extends Component {
     }
 
     return(
-      <div className="card white lighten-1 center neg-right">
+      <div className="card white lighten-1 center">
         {cardContent}
         {cardAction}
       </div>

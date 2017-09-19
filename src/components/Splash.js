@@ -1,28 +1,36 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import LoginSignupFormContainer from './LoginSignupFormContainer';
+import {Parallax} from 'react-parallax'
 
 class Splash extends Component {
+  constructor(){
+    super()
+    this.forceRerender = this.forceRerender.bind(this)
+  }
+  forceRerender(){
+    this.forceUpdate();
+  }
+
   render() {
     return (
       <div>
         <div id="index-banner" className="parallax-container">
-          <div className="section no-pad-bot">
+            <div className="section no-pad-bot">
               <div className="row">
-                <div className="col l4 offset-l4 m8 offset-m4 s9 offset-s3">
-                  <div className="header-container">
-                    <h1 className="header teal-text text-lighten-1">HUH!</h1>
-                    <h5 className="header bright-pink-text"><strong>More Useful Than You Think!</strong></h5>
+                  <div className="col l4 offset-l4 m8 offset-m4 s9 offset-s3">
+                    <div className="header-container">
+                      <h1 className="header teal-text text-lighten-1">HUH!</h1>
+                      <h5 className="header bright-pink-text"><strong>More Useful Than You Think!</strong></h5>
+                    </div>
+                  </div>
+                  <div className="col l4 m9 offset-m3 s9 offset-s3 neg-right">
+                    <LoginSignupFormContainer parentRerender={this.forceRerender} />
                   </div>
                 </div>
-                <div className="col l4 m9 offset-m3 s9 offset-s3">
-                  <LoginSignupFormContainer />
-                </div>
+                <br /><br /><br />
               </div>
-              <br /><br /><br />
-
-          </div>
-          <div className="parallax" id="parallax_1"><img src="/images/hud2b.jpg" alt="Car Dashboard" /></div>
+          <div className="parallax" id="parallax_1"><img src={"/images/hud2b.jpg"} alt="Car Dashboard" /></div>
         </div>
 
 

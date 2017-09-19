@@ -14,6 +14,9 @@ class LoginSignupFormContainer extends Component {
     this.handleSubmit=this.handleSubmit.bind(this);
   }
 
+  componentWillUpdate(){
+    this.props.parentRerender()
+  }
   //THis is where the magic happens. This function handles both signup and login
   handleSubmit(e) {
     let email=e.email;
