@@ -1,7 +1,7 @@
 //key : "value";
 
 let envConfig = {
-  lbApiUrl: "https://capstonelb.mybluemix.net/api/"
+  lbApiUrl: "http://capstonelb.viatd-enterprises-dev.apic.mybluemix.net"
 }
 
 module.exports = envConfig
