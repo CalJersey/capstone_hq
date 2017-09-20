@@ -47,7 +47,8 @@ class LoginSignupFormContainer extends Component {
         console.log("SS",sessionStorage);
       }
     }, err => {
-      notify.show(err.responseJSON.error.message,'error');
+      console.log("err=",err)
+      notify.show("An unknown error has occured",'error');
     });
   }
 
