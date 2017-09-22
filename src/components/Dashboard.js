@@ -46,7 +46,7 @@ class Dashboard extends Component {
     if (redirect) {
       let redirectRoute = `/`;
       let err = 'You must be logged in to view that page.'
-      global.config.LSCtrl.setUserRedirectMessage({err},'error')
+      global.config.LSCtrl.setUserRedirectMessages({err},'error')
       return <Redirect to={redirectRoute} push />;
     }
     // console.log(global.config.SessionCtrl.isAuthenticated())

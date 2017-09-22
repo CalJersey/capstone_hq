@@ -31,6 +31,9 @@ class LoginSignupFormContainer extends Component {
         data: {
         email: email,
         password: password
+      },
+      xhrFields: {
+        withCredentials: true
       }
     }).then(res => {
       console.log("res is ", res);

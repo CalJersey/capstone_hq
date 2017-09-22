@@ -24,9 +24,9 @@
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
-    "start": "node scripts/customized-config start",
-    "build": "node scripts/customized-config build",
-    "test": "node scripts/customized-config test --env=jsdom",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",

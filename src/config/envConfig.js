@@ -1,7 +1,8 @@
 //key : "value";
+const api_url = process.env.API_URL || 'localhost:3000/';
 
 let envConfig = {
-  lbApiUrl: "http://capstonelb.viatd-enterprises-dev.apic.mybluemix.net/"
+  lbApiUrl: api_url + 'api/'
 }
 
 module.exports = envConfig
