@@ -8,18 +8,21 @@ class MWDictWrapper extends Component {
   constructor() {
     super();
     let state = {
-      isWaitingForResponse : false
+      isWaitingForResponse : false                                                                    
     }
   }
+
   render(){
+      console.log("props=",this.props)
     return(
+
       <div className="card white lighten-1 center">
         <div className="card-content teal-text text-lighten-1">
           <span className="widgetLogo"><img src={"images/mwlogo.png"} /></span>
           <span className="card-title">{this.props.api.name}</span>
         </div>
         <div className="card-action">
-         <MWDict props="this.props" />
+         <MWDict props={this.props} />
         </div>
       </div>
     )
