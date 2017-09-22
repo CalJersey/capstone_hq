@@ -14,39 +14,39 @@ class MWDict extends Component {
     this.setState({Keyword: e.target.value});
   }
 
-  handleSubmit(e) {
-    let keyword=e.keyword;
-    let password=e.password;
-    let ApiUrl = global.config.Env.lbApiUrl + 'Users'
-    if (e.action === 'Login') {
-      ApiUrl = ApiUrl + '/login'
-    }
-    $.ajax({
-        method: "POST",
-        url: ApiUrl,
-        data: {
-        email: email,
-        password: password
-      }
-    }).then(res => {
-      console.log("res is ", res);
-      if (e.action === 'Signup'){
-        global.config.SessionCtrl.setSessionKey('userId',res.id)
-        let newAction = 'Login'
-        let login = {email: email, password: password, action: newAction}
-        this.handleSubmit(login)
-      } else {
-        global.config.SessionCtrl.setSessionKey('userId',res.userId)
-        global.config.SessionCtrl.setSessionKey('ACCESS_TOKEN',res.id);
-        global.config.SessionCtrl.setSessionKey('email',email)
-        this.setState({redirect:true, userId:res.userId})
-        console.log("SS",sessionStorage);
-      }
-    }, err => {
-      console.log("err=",err)
-      notify.show("An unknown error has occured",'error');
-    });
-  }
+  // handleSubmit(e) {
+  //   let keyword=e.MWDictKeyword;
+  //   let password=e.password;
+  //   let ApiUrl = global.config.Env.lbApiUrl + 'Users'
+  //   if (e.action === 'Login') {
+  //     ApiUrl = ApiUrl + '/login'
+  //   }
+  //   $.ajax({
+  //       method: "POST",
+  //       url: ApiUrl,
+  //       data: {
+  //       email: email,
+  //       password: password
+  //     }
+  //   }).then(res => {
+  //     console.log("res is ", res);
+  //     if (e.action === 'Signup'){
+  //       global.config.SessionCtrl.setSessionKey('userId',res.id)
+  //       let newAction = 'Login'
+  //       let login = {email: email, password: password, action: newAction}
+  //       this.handleSubmit(login)
+  //     } else {
+  //       global.config.SessionCtrl.setSessionKey('userId',res.userId)
+  //       global.config.SessionCtrl.setSessionKey('ACCESS_TOKEN',res.id);
+  //       global.config.SessionCtrl.setSessionKey('email',email)
+  //       this.setState({redirect:true, userId:res.userId})
+  //       console.log("SS",sessionStorage);
+  //     }
+  //   }, err => {
+  //     console.log("err=",err)
+  //     notify.show("An unknown error has occured",'error');
+  //   });
+  // }
 
 render(){
 
