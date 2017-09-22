@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 
-class MWDict extends Component {
+class MWSpEn extends Component {
   constructor(){
     super();
     this.state ={
@@ -29,4 +29,4 @@ class MWDict extends Component {
 
 }
 
-export default MWDict
+export default MWSpEn

@@ -80,6 +80,10 @@ textarea.materialize-textarea {
 div.notification-wrapper important! {
   line-height: 2rem;
 }
+
+main {
+   background-color: #1fd9d0;
+}
 .card {
   border-radius: 5px;
   min-width: 350px;

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import {notify} from 'react-notify-toast';
 import {Redirect} from 'react-router-dom';
-import {api_name} from './.config';
-import WidgetWrapper from '../../components/WidgetWrapper';
 
-class MWDictWrapper extends Component {
+
+class MWSpEnWrapper extends Component {
   constructor() {
     super();
     let state = {
@@ -13,4 +12,4 @@ class MWDictWrapper extends Component {
       api: {},
     }}
 }
-export default MWDictWrapper;
+export default MWSpEnWrapper;

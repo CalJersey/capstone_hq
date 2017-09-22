@@ -8,22 +8,22 @@ import Logo from './Logo';
 class MainLayout extends Component {
   render() {
     return (
+      // <div className="main">
+        // <nav className="white">
+        //   <div className="nav-wrapper container">
+        //     <Route path="/dashboard" component={Logo} />
+        //
+        //     <ul className="right hide-on-med-and-down">
+        //       <Link to="/''"
+        //     </ul>
+        //
+        //     <ul id="nav-mobile" className="side-nav">
+        //
+        //     </ul>
+        //     <a href="" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">menu</i></a>
+        //   </div>
+        // </nav>
       <div className="main">
-        <nav className="white">
-          <div className="nav-wrapper container">
-            <Route path="/dashboard" component={Logo} />
-
-            <ul className="right hide-on-med-and-down">
-
-            </ul>
-
-            <ul id="nav-mobile" className="side-nav">
-
-            </ul>
-            <a href="" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">menu</i></a>
-          </div>
-        </nav>
-
         <div className="entry">
           <Switch>
             <Route path="/dashboard/" component={Dashboard}/>

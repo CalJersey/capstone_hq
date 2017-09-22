@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from "react";
 import {Redirect} from 'react-router-dom';
 import {notify} from 'react-notify-toast';
-import WidgetWrapper from './WidgetWrapper';
 import $ from 'jquery-ajax';
+import DashboardDynamicComponent from './DashboardDynamicComponent'
 
 class Dashboard extends Component {
   constructor(){
@@ -80,7 +80,7 @@ class Dashboard extends Component {
       "instance_2_key": "string",
       "instance_3_key": "string",
       "request_format": "XML",
-      "component_file_dir": "M WDict",
+      "component_file_dir": "MWDict",
       "component_file_name": "MWDict",
       "id": 2
     }
@@ -110,10 +110,11 @@ return responseJSON
       if(userWidgets){
         userWidgets.forEach(function(item,index){
           console.log("widget=",item)
-          let widgetComponent = `${item.component_file_name}Wrapper`
+          console.log(item.aPEye)
+          let widgetComponent = `${item.aPEye.component_file_name}Wrapper`
           renderWidgets.push(
-            <div className="DashboardWidget xl3 l4 m6 s12 ">
-              <widgetComponent key={index} apiId={item.apiId} api={item.api} />
+            <div className="DashboardWidget xl3 l4 m6 s12" key={index}>
+              <DashboardDynamicComponent componentName={widgetComponent} key={index} apiId={item.aPEyeId} api={item.aPEye} />
             </div>
           )
         })
