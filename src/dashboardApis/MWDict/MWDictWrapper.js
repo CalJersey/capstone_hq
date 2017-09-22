@@ -1,16 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import {notify} from 'react-notify-toast';
 import {Redirect} from 'react-router-dom';
 import {api_name} from './.config';
 import WidgetWrapper from '../../components/WidgetWrapper';
 
-class MWDictWrapper extends Component {
+export default class MWDictWrapper extends WidgetWrapper {
   constructor() {
     super();
     let state = {
-      redirect:false,
-      user:{},
-      api: {},
-    }}
+      isWaitingForResponse : false
+    }
+  }
+  renderTitle(){
+    <div className="card-content teal-text text-lighten-1">
+      <span className="widgetLogo"><img src={"images/mwlogo.png"} /></span>
+      <span className="card-title">this.title</span>
+    </div>
+  }
 }
-export default MWDictWrapper;
