@@ -5,7 +5,7 @@ class NotificationsFromPreviousPage extends Component {
   componentDidMount() {
     let toastMessages = global.config.LSCtrl.getUserRedirectMessages();
     if (toastMessages){
-      notify.show(toastMessages[0],toastMessages[1]);
+      //notify.show(toastMessages[0],toastMessages[1]);
     }
   }
   render(){

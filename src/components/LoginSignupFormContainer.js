@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import $ from "jquery-ajax";
+import $ from "jquery";
 import LoginSignupForm from "./LoginSignupForm";
 import {notify} from 'react-notify-toast';
 import {Redirect} from 'react-router-dom';
@@ -31,9 +31,6 @@ class LoginSignupFormContainer extends Component {
         data: {
         email: email,
         password: password
-      },
-      xhrFields: {
-        withCredentials: true
       }
     }).then(res => {
       console.log("res is ", res);
