@@ -30,7 +30,7 @@ class MWSpEn extends Component {
         dataType: "XML",
         error: (res) => {
           console.log("res=",res)
-          notify.show(res.responseText, 'error')
+          notify.show("An Error has Occured. Please Try Again", 'error')
         },
       complete: (res)=>{this.renderResults(res)}
     })
@@ -42,10 +42,9 @@ class MWSpEn extends Component {
   }
 
   renderResults(results){
-    console.log("results=",xmlToJSON.parseString(results))
-    let newContent = xmlToJSON.parseString(results)
-    console.log("resultJSON=",newContent)
-    let newerContent = ""
+    //console.log("results=",xmlToJSON.parseString(results))
+    //let newContent = results
+    //let newerContent = ""
     // newContent.entry_list[0].entry.forEach((item,index)=>{
     //   item.def.forEach((item2,index2)=>{
     //     item2.dt.forEach((item3,index3)=>{
@@ -57,10 +56,9 @@ class MWSpEn extends Component {
     //   })
     // })
 
-  console.log(newerContent)
   newerContent = `
     <strong>${this.state.MWSpEnKeyword}:</strong><br />
-    <ul>${newerContent}</ul>`
+    <pre>${results}</pre>`
 
   this.setState({MWSpEnContent: newerContent})
   }

@@ -2,6 +2,7 @@ import React, {Component,PropTypes} from "react";
 import {Redirect} from 'react-router-dom';
 import {notify} from 'react-notify-toast';
 import $ from 'jquery-ajax';
+import {Link} from 'react-router-dom'
 //import DashboardDynamicComponent from './DashboardDynamicComponent'
 // import MWDict from '../dashboardApis/MWDict/MWDict'
 import MWDictWrapper from '../dashboardApis/MWDict/MWDictWrapper'
@@ -50,10 +51,46 @@ class Dashboard extends Component {
       method: "GET",
       url: ApiUrl,
       error: (res) => {
-        notify.show(res.responseText, 'error')
+        notify.show('An Error has Occured. Please Try Again', 'error')
       },
-      complete: (res)=>{this.renderWidgets(res.responseJSON)}
+      complete: (res)=>{
+        if (res.responseJSON.length){
+          this.renderWidgets(res.responseJSON)
+        } else {
+          this.addUserWidgets()
+        }
+      }
     })
+  }
+
+  addUserWidgets(){
+    let ApiUrl = global.config.Env.lbApiUrl + 'Widgets'
+    $.ajax({
+        method: "POST",
+        url: ApiUrl,
+        data: {
+          userId: global.config.SessionCtrl.sessionKey('userId') ,
+          APEyeId: 1,
+        },
+        error: () => {
+          notify.show('An Error has Occured. Please Try Again', 'error')
+        },
+        complete: () => {
+          $.ajax({
+            method: "POST",
+            url: ApiUrl,
+            data: {
+              userId: global.config.SessionCtrl.sessionKey('userId') ,
+              APEyeId: 2
+            },
+            error: () => {
+              notify.show('An Error has Occured. Please Try Again', 'error')
+            },
+            complete: setTimeout(this.loadUserWidgets(),1000)
+          })
+        }
+      }
+    )
   }
 
   renderDynamicApiComponent(api){
@@ -101,9 +138,18 @@ class Dashboard extends Component {
     console.log("rw=",this.state.renderedWidgets)
     if (this.state.renderedWidgets[0]){
       return(
-        <div className="dashboard row">
-          <MWDictWrapper data={this.state.renderedWidgets[0].aPEye} />
-          <MWSpEnWrapper data={this.state.renderedWidgets[1].aPEye} />
+        <div>
+          <div className="row teal">
+          <Link to="/logout/" className="btn btn-small btn-primary white">
+            <span className="btn-small-text teal-text">Logout</span>
+            <i className="small material-icons teal-text">chevron_right</i>
+          </Link>
+          <div className="col s12"><h3 className="header white-text">Your HUH! Heads Up Dashboard</h3></div>
+          </div>
+          <div className="dashboard row">
+            <MWDictWrapper data={this.state.renderedWidgets[0].aPEye} />
+            <MWSpEnWrapper data={this.state.renderedWidgets[1].aPEye} />
+          </div>
         </div>
     ) } else{
     return null
