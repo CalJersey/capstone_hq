@@ -4,7 +4,7 @@
     $('.button-collapse').sideNav();
 
     setInterval(
-    ()=>{      
+    ()=>{
       if ($('.parallax').css('transform')=='none'){
         $('.parallax').parallax();}
       }

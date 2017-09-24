@@ -1,5 +1,5 @@
 //key : "value";
-const api_url = process.env.API_URL || 'localhost:3000/';
+const api_url = process.env.API_URL || 'http://localhost:3000/';
 //
 
 let envConfig = {

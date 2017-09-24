@@ -89,6 +89,7 @@ main {
   min-width: 350px;
   max-width: 350px;
   border: 1px solid #1fd9d0;
+  display: inline-block;
 }
 .card .card-title {
   font-weight: 500;

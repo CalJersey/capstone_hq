@@ -1,63 +1,82 @@
 import React, { Component, PropTypes } from "react";
+import $ from "jquery-ajax"
+import {notify} from 'react-notify-toast'
+import { DOMParser } from 'xmldom'
+import xmlToJSON from 'xmltojson'
+import jsonMarkup from 'json-markup'
+xmlToJSON.stringToXML = (string) => new DOMParser().parseFromString(string, 'text/xml');
+
 
 class MWDict extends Component {
   constructor(){
     super();
     this.state ={
+      MWDictKeyword: "",
+      renderedResults: "",
+      MWDictContent: ""
 
     };
+    this.handleKeywordChange = this.handleKeywordChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+
+
   }
   handleSubmit(e) {
-
-  }
+    e.preventDefault()
+      let fetchUrl = `${this.props.data.base_url}${this.state.MWDictKeyword}?${this.props.data.app_key_name}=${this.props.data.app_key_value}`
+      $.ajax({
+        method: "GET",
+        url: fetchUrl,
+        dataType: "XML",
+        error: (res) => {
+          console.log("res=",res)
+          notify.show(res.responseText, 'error')
+        },
+        complete: (res)=>{this.renderResults(res)}
+      })
+    }
   handleKeywordChange(e) {
-    this.setState({Keyword: e.target.value});
+    e.preventDefault()
+    this.setState({MWDictKeyword: e.target.value});
   }
 
-  // handleSubmit(e) {
-  //   let keyword=e.MWDictKeyword;
-  //   let password=e.password;
-  //   let ApiUrl = global.config.Env.lbApiUrl + 'Users'
-  //   if (e.action === 'Login') {
-  //     ApiUrl = ApiUrl + '/login'
-  //   }
-  //   $.ajax({
-  //       method: "POST",
-  //       url: ApiUrl,
-  //       data: {
-  //       email: email,
-  //       password: password
-  //     }
-  //   }).then(res => {
-  //     console.log("res is ", res);
-  //     if (e.action === 'Signup'){
-  //       global.config.SessionCtrl.setSessionKey('userId',res.id)
-  //       let newAction = 'Login'
-  //       let login = {email: email, password: password, action: newAction}
-  //       this.handleSubmit(login)
-  //     } else {
-  //       global.config.SessionCtrl.setSessionKey('userId',res.userId)
-  //       global.config.SessionCtrl.setSessionKey('ACCESS_TOKEN',res.id);
-  //       global.config.SessionCtrl.setSessionKey('email',email)
-  //       this.setState({redirect:true, userId:res.userId})
-  //       console.log("SS",sessionStorage);
-  //     }
-  //   }, err => {
-  //     console.log("err=",err)
-  //     notify.show("An unknown error has occured",'error');
-  //   });
-  // }
+  renderResults(results){
+    console.log("results=",xmlToJSON.parseString(results.responseText))
+    let newContent = xmlToJSON.parseString(results.responseText)
+    console.log("resultJSON=",newContent)
+    let newerContent = ""
+    newContent.entry_list[0].entry.forEach((item,index)=>{
+      item.def.forEach((item2,index2)=>{
+        item2.dt.forEach((item3,index3)=>{
+          let thisDef = item3._text.replace(':','').trim()
+
+          if (thisDef.length){
+          newerContent = `${newerContent}<li>${thisDef}</li>`
+        }})
+      })
+    })
+
+    console.log(newerContent)
+    newerContent = `
+      <strong>${this.state.MWDictKeyword}:</strong><br />
+      <ul>${newerContent}</ul>`
+
+    this.setState({MWDictContent: newerContent})
+  }
+
+createMarkup(strIn) { return {__html: strIn}; };
 
 render(){
-
+  console.log(this.props)
   return(
     <div>
+      <script src={"%PUBLIC_URL%assets/styles/MWDictStyles.css"}></script>
       <div>
       <form onSubmit={this.handleSubmit} className="MWDictSearch" id="#MWDictSearch">
         <input
           type="text"
           placeholder="word or phrase to lookup"
-          value={this.state.keyword}
+          value={this.state.MWDictKeyword}
           onChange={this.handleKeywordChange}
           name="MWDictKeyword"/>
           <button id="MWDictQuery"
@@ -70,29 +89,9 @@ render(){
           </button>
       </form>
       </div>
-      <div className="MWDictContent"></div>
+      <div className="MWDictContent" dangerouslySetInnerHTML={this.createMarkup(this.state.MWDictContent)} />
     </div>
-  )
-}
-// this.
-//   fetchData(){
-//
-//     fetch('http://www.dictionaryapi.com/api/v1/references/collegiate/xml/hypocrite?key=d5060fb7-003d-49fe-acce-9f5383615493')
-//     .then(function(response){
-//       if (response.ok){
-//         return response.json()
-//
-//       }
-//
-//     })
-//   }
-  //
-  // componentWillMount(){
-  //   this.fetchData();
-  // }
-  // componentWillUpdate(){
-  //   this.fetchData();
-  // }
-
+    )
+  }
 }
 export default MWDict

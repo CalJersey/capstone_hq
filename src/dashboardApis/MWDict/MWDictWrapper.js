@@ -13,16 +13,17 @@ class MWDictWrapper extends Component {
   }
 
   render(){
-      console.log("props=",this.props)
+      console.log("props=",this.props.data)
     return(
-
-      <div className="card white lighten-1 center">
-        <div className="card-content teal-text text-lighten-1">
-          <span className="widgetLogo"><img src={"images/mwlogo.png"} /></span>
-          <span className="card-title">{this.props.api.name}</span>
-        </div>
-        <div className="card-action">
-         <MWDict props={this.props} />
+      <div className="col xl3 l4 m6 s12">
+        <div className="card white lighten-1 center">
+          <div className="card-content teal-text text-lighten-1">
+            <span className="widgetLogo"><img src={"../../src/dashboardApis/MWDict/assets/images/mwLogo.png"} /></span>
+            <span className="card-title">{this.props.data.name}</span>
+          </div>
+          <div className="card-action">
+           <MWDict data={this.props.data} />
+          </div>
         </div>
       </div>
     )

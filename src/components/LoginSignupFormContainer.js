@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import $ from "jquery";
+import $ from "jquery-ajax";
 import LoginSignupForm from "./LoginSignupForm";
 import {notify} from 'react-notify-toast';
 import {Redirect} from 'react-router-dom';
@@ -48,14 +48,14 @@ class LoginSignupFormContainer extends Component {
       }
     }, err => {
       console.log("err=",err)
-      notify.show("An unknown error has occured",'error');
+      notify.show(err.responseJSON.error.message,'error');
     });
   }
 
   render() {
     //console.log("red:",this.state.redirect)
     if (this.state.redirect) {
-      let redirectRoute = `/dashboard/${this.state.userId}`;
+      let redirectRoute = `/dashboard/`;
       return <Redirect to={redirectRoute} push />;
     }
     return(

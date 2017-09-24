@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {notify} from 'react-notify-toast';
-import $ from "jquery";
+import $ from "jquery-ajax";
 
 class LoginSignupForm extends Component {
 

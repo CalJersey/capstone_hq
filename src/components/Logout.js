@@ -37,7 +37,7 @@ class Logout extends Component {
   render(){
 
     if (this.state.redirect){
-      return( <Redirect to={this.state.redirectPath} /> )
+      return( <Redirect to={this.state.redirectPath} push /> )
     }
     return false
   }

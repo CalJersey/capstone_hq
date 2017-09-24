@@ -9,11 +9,8 @@ let sessionController = {
     return true;
   },
 
-///ALTERED TO WORK AROUND CORS ISSUE
   isAuthenticated: function(){
-    this.setUserSession('1212sde',1)
-    return true
-    // this.sessionKey('ACCESS_TOKEN') ? true : false
+    return this.sessionKey('ACCESS_TOKEN') || false
   },
 
   setUserSession: function (token, id) {

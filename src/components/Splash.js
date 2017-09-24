@@ -68,7 +68,6 @@ class Splash extends Component {
 
           </div>
         </div>
-        <script>$('.parallax').parallax();</script>
       </div>
     )
   }

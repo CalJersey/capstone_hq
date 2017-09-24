@@ -18,10 +18,10 @@ class MWSpEnWrapper extends Component {
       <div className="card white lighten-1 center">
         <div className="card-content teal-text text-lighten-1">
           <span className="widgetLogo"><img src={"images/mwlogo.png"} /></span>
-          <span className="card-title">{this.props.api.name}</span>
+          <span className="card-title">{this.props.data.name}</span>
         </div>
         <div className="card-action">
-         <MWSpEn props={this.props} />
+         <MWSpEn data={this.props.data} />
         </div>
       </div>
     )
