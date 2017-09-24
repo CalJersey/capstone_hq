@@ -45,16 +45,20 @@ class MWDict extends Component {
     let newContent = xmlToJSON.parseString(results.responseText)
     console.log("resultJSON=",newContent)
     let newerContent = ""
-    newContent.entry_list[0].entry.forEach((item,index)=>{
-      item.def.forEach((item2,index2)=>{
-        item2.dt.forEach((item3,index3)=>{
-          let thisDef = item3._text.replace(':','').trim()
+    if (newContent.entry_list[0].entry){
+      newContent.entry_list[0].entry.forEach((item,index)=>{
+        item.def.forEach((item2,index2)=>{
+          item2.dt.forEach((item3,index3)=>{
+            let thisDef = item3._text.replace(':','').trim()
 
-          if (thisDef.length){
-          newerContent = `${newerContent}<li>${thisDef}</li>`
-        }})
+            if (thisDef.length){
+            newerContent = `${newerContent}<li>${thisDef}</li>`
+          }})
+        })
       })
-    })
+    } else {
+      newerContent = 'No entries found for that search'
+    }
 
     console.log(newerContent)
     newerContent = `

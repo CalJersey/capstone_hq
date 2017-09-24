@@ -55,12 +55,17 @@ class MWSpEn extends Component {
     //     }})
     //   })
     // })
-
-  let newerContent = `
-    <strong>${this.state.MWSpEnKeyword}:</strong><br />
-    <pre>${results}</pre>`
-
-  this.setState({MWSpEnContent: newerContent})
+    console.log(results)
+    let newerContent = ""
+    if(results.responseText){
+      newerContent = results.responseText
+    } else {
+      newerContent = "No entries found for that search"
+    }
+    newerContent =
+    `<strong>${this.state.MWSpEnKeyword}:</strong><br />
+    ${newerContent}`
+    this.setState({MWSpEnContent: newerContent})
   }
 
   createMarkup(strIn) { return {__html: strIn}; };
