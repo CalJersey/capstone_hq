@@ -56,7 +56,7 @@ class MWSpEn extends Component {
     //   })
     // })
 
-  newerContent = `
+  let newerContent = `
     <strong>${this.state.MWSpEnKeyword}:</strong><br />
     <pre>${results}</pre>`
 

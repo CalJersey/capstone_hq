@@ -71,7 +71,7 @@ class LoginSignupForm extends Component {
    renderAuthorizedAction(){
      return(
        <div className="card-action">
-         <Link to={`/dashboard/${global.config.SessionCtrl.sessionKey('userId')}`} className="btn btn-small btn-primary"><span className="btn-small-text">Dashboard</span><i className="small material-icons">chevron_right</i></Link>
+         <Link to={'/dashboard/'} className="btn btn-small btn-primary"><span className="btn-small-text">Dashboard</span><i className="small material-icons">chevron_right</i></Link>
          <Link to="/logout/" className="btn btn-small btn-primary"><span className="btn-small-text">Logout</span><i className="small material-icons">chevron_right</i></Link>
        </div>
      )
