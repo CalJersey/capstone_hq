@@ -1,6 +1,6 @@
 //key : "value";
 console.log("APIURL=",process.env.API_URL)
-const api_url = process.env.API_URL || 'http://localhost:3000/';
+const api_url ='https://capstone-back.mybluemix.net/';
 //
 
 let envConfig = {
