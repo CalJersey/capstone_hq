@@ -1,4 +1,5 @@
 //key : "value";
+console.log("APIURL=",process.env.API_URL)
 const api_url = process.env.API_URL || 'http://localhost:3000/';
 //
 
