@@ -24,7 +24,7 @@ The backend API is located at: [https://capstone- back.mybluemix.net/explorer/]
 -- CD to root directory
 -- npm install
 -- npm install - g strongloop
--- node
+-- node *
 backend will come up on port 3000 of localhost
 *Frontend*
 - Clone this Repo
