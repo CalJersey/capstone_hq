@@ -21,10 +21,10 @@ The backend API is located at: [https://capstone * back.mybluemix.net/explorer/]
 *Install the Loopback backend first*
  * Clone the backend repo located at: [https://github.com/CalJersey/capstone_back]
  * IN TERMINAL:
-  ** CD to root directory
-  ** npm install
-  ** npm install  * g strongloop
-  ** node .
+     * CD to root directory
+     * npm install
+     * npm install  * g strongloop
+     * node .
 backend will come up on port 3000 of localhost
 *Frontend*
  * Clone this Repo
