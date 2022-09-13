@@ -11,7 +11,7 @@ The backend API is located at: [https://capstone-back.mybluemix.net/explorer/]
  * NodeJS
  * Express
  * React (via React-Dom)
- * React * Router v4
+ * React-Router v4
  * Loopback
  * jquery
  * AJAX
@@ -36,10 +36,10 @@ backend will come up on port 3000 of localhost
  * app will recognize loopback server is running on port 3000 and will ask if you want to run on a different port. Hit enter to confirm.
  * go to http://localhost:3001 to start using it.
 
-## # Trello board with all site assets, user stories, wireframes, ERD, and much more:
+## Trello board with all site assets, user stories, wireframes, ERD, and much more:
 https://trello.com/b/j8B3t6ZA/api-dashboard-wdi-capstone
 
-## # Upgrades To Come
+## Upgrades To Come
  * Make error messaging consistent (Errors currently do not display between pages)
  * Visual overhaul for dashboard
  * Dashboard widgets can be dragged and dropped in position from the gallery
