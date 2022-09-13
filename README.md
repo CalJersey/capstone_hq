@@ -26,7 +26,7 @@ The backend API is located at: [https://capstone-back.mybluemix.net/explorer/]
      * npm install
      * npm install -g strongloop
      * node .
-backend will come up on port 3000 of localhost
+Backend will come up on port 3000 of localhost
 
 *Frontend*
  * Clone this Repo
@@ -34,8 +34,8 @@ backend will come up on port 3000 of localhost
      * CD to the root directory
      * npm install
      * npm start
- * app will recognize loopback server is running on port 3000 and will ask if you want to run on a different port. Hit enter to confirm.
- * go to http://localhost:3001 to start using it.
+ * App will recognize loopback server is running on port 3000 and will ask if you want to run on a different port. Hit enter to confirm.
+ * Go to http://localhost:3001 to start using it.
 
 ## Trello board with all site assets, user stories, wireframes, ERD, and much more:
 https://trello.com/b/j8B3t6ZA/api-dashboard-wdi-capstone
