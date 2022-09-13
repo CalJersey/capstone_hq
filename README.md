@@ -1,7 +1,7 @@
 # HUH!
 ## Heads Up Dashboard!
 
-*A React front * end backed by a Loopback API that provides a widgetized dashboard. Dashboard widgets connect to external API's top put various customizable functionalities at your fingertips. Each authenticated user gets their own dashboard which they can setup with whatever widgets they like. Widgets will be selected from a gallery and can be placed in whatever order you like. Widget gallery to include widgets for: Weather, Traffic Info, Dictionary and translations, mini * games, and much more. The app is fully responsive so it can go whereever you go, from your laptop to your tablet to your phone.*
+* A React front-end backed by a Loopback API that provides a widgetized dashboard. Dashboard widgets connect to external API's to provide 3rd party functionality. Each authenticated user gets their own dashboard which they can setup with as many widgets as they like. Widgets will be selected from a gallery and can be placed in whatever order you like. Widget gallery to include widgets for: Weather, Traffic Info, Dictionary and translations, mini-games, and much more. The app is fully responsive so it can go whereever you go, from your laptop to your tablet, to your phone. *
 
 You can visit the most recent deployment at: [https://capstone * hq.herokuapp.com/]
 The backend API is located at: [https://capstone * back.mybluemix.net/explorer/]
