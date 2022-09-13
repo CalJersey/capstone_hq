@@ -30,9 +30,9 @@ backend will come up on port 3000 of localhost
 *Frontend*
  * Clone this Repo
  * IN TERMINAL:
- * CD to the root directory
- * npm install
- * npm start
+     * CD to the root directory
+     * npm install
+     * npm start
  * app will recognize loopback server is running on port 3000 and will ask if you want to run on a different port. Hit enter to confirm.
  * go to http://localhost:3001 to start using it.
 
